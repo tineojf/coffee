@@ -34,7 +34,6 @@ public class Producto {
     @Column(name = "imagen", nullable = false)
     private String imagen;
 
-    @Column(name = "esNuevo", nullable = false)
+    @Column(name = "esNuevo")
     private Boolean esNuevo;
-
 }

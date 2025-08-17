@@ -18,6 +18,7 @@ public class ProductoMapper {
         newProducto.setDetalle(producto.getDetalle());
         newProducto.setCategoria(producto.getCategoria());
         newProducto.setImagen(producto.getImagen());
+        newProducto.setEsNuevo(true);
         return newProducto;
     }
 }
