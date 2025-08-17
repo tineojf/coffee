@@ -23,11 +23,11 @@ public class ProductoController {
 
         try {
             data = productoService.findAll();
-            message = Constant.str_allRetrieved(Constant.PRODUCT_TABLE);
+            message = "All " + Constant.PRODUCT_TABLE + " retrieved";
             status = HttpStatus.OK;
         } catch (Exception e) {
             data = null;
-            message = Constant.str_generalError(Constant.PRODUCT_TABLE);
+            message = "Error retrieving " + Constant.PRODUCT_TABLE;
             status = HttpStatus.INTERNAL_SERVER_ERROR;
         }
 
@@ -44,21 +44,24 @@ public class ProductoController {
         HttpStatus status;
         Object data;
         String message;
+        String details = null;
 
         try {
-            data = productoService.findById(id);
-            message = Constant.str_retrieved(Constant.PRODUCT_TABLE, id);
             status = HttpStatus.OK;
+            data = productoService.findById(id);
+            message = Constant.PRODUCT_TABLE + " retrieved - id: " + id;
         } catch (Exception e) {
-            data = null;
-            message = Constant.str_notFound(Constant.PRODUCT_TABLE, id);
             status = HttpStatus.NOT_FOUND;
+            data = null;
+            message = "Error retrieving " + Constant.PRODUCT_TABLE + " with id: " + id;
+            details = e.getMessage();
         }
 
         return ResponseEntity.status(status).body(
                 GlobalResponse.builder()
                         .message(message)
                         .data(data)
+                        .details(details)
                         .build()
         );
     }
@@ -68,21 +71,24 @@ public class ProductoController {
         HttpStatus status;
         Object data;
         String message;
+        String details = null;
 
         try {
-            data = productoService.save(producto);
-            message = Constant.str_saved(Constant.PRODUCT_TABLE);
             status = HttpStatus.CREATED;
+            data = productoService.save(producto);
+            message = Constant.PRODUCT_TABLE + " created successfully";
         } catch (Exception e) {
-            data = null;
-            message = Constant.str_generalError(Constant.PRODUCT_TABLE);
             status = HttpStatus.INTERNAL_SERVER_ERROR;
+            data = null;
+            message = "Error creating " + Constant.PRODUCT_TABLE + ": " + e.getMessage();
+            details = e.getMessage();
         }
 
         return ResponseEntity.status(status).body(
                 GlobalResponse.builder()
                         .message(message)
                         .data(data)
+                        .details(details)
                         .build()
         );
     }
@@ -91,20 +97,23 @@ public class ProductoController {
     public ResponseEntity<GlobalResponse> deleteById(@PathVariable Long id) {
         HttpStatus status;
         String message;
+        String details = null;
 
         try {
-            productoService.deleteById(id);
-            message = Constant.str_retrieved(Constant.PRODUCT_TABLE, id);
             status = HttpStatus.OK;
+            productoService.deleteById(id);
+            message = Constant.PRODUCT_TABLE + " deleted successfully - id: " + id;
         } catch (Exception e) {
-            message = e.getMessage();
             status = HttpStatus.NOT_FOUND;
+            message = "Error deleting " + Constant.PRODUCT_TABLE + " with id: " + id;
+            details = e.getMessage();
         }
 
         return ResponseEntity.status(status).body(
                 GlobalResponse.builder()
                         .message(message)
                         .data(null)
+                        .details(details)
                         .build()
         );
     }

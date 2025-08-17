@@ -19,18 +19,20 @@ public class DistritoController {
 
     @GetMapping
     public ResponseEntity<GlobalResponse> findAll() {
+        HttpStatus status;
         Object data;
         String message;
-        HttpStatus status;
+        String details = null;
 
         try {
             data = distritoService.findAll();
-            message = Constant.str_allRetrieved(Constant.DISTRICT_TABLE);
+            message = "All " + Constant.DISTRICT_TABLE + " retrieved";
             status = HttpStatus.OK;
         } catch (Exception e) {
             data = null;
-            message = Constant.str_generalError(Constant.DISTRICT_TABLE);
+            message = "Error retrieving " + Constant.DISTRICT_TABLE;
             status = HttpStatus.INTERNAL_SERVER_ERROR;
+            details = e.getMessage();
         }
 
         return ResponseEntity.status(status).body(
@@ -38,24 +40,27 @@ public class DistritoController {
                         .ok(data != null)
                         .message(message)
                         .data(data)
+                        .details(details)
                         .build()
         );
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<GlobalResponse> findById(@PathVariable Long id) {
+        HttpStatus status;
         Object data;
         String message;
-        HttpStatus status;
+        String details = null;
 
         try {
             data = distritoService.findById(id);
-            message = Constant.str_retrieved(Constant.DISTRICT_TABLE, id);
+            message = Constant.DISTRICT_TABLE + " retrieved - id: " + id;
             status = HttpStatus.OK;
         } catch (Exception e) {
             data = null;
-            message = Constant.str_notFound(Constant.DISTRICT_TABLE, id);
+            message = "Error retrieving " + Constant.DISTRICT_TABLE + " with id: " + id;
             status = HttpStatus.NOT_FOUND;
+            details = e.getMessage();
         }
 
         return ResponseEntity.status(status).body(
@@ -63,6 +68,7 @@ public class DistritoController {
                         .ok(data != null)
                         .message(message)
                         .data(data)
+                        .details(details)
                         .build()
         );
     }
