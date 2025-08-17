@@ -1,12 +1,13 @@
 package com.cavoshcoffee.backend.entity;
 
+import com.cavoshcoffee.backend.config.Constant;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "distrito")
+@Table(name = Constant.DISTRICT_TABLE)
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
