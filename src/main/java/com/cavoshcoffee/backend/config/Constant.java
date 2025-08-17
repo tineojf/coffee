@@ -12,4 +12,6 @@ public class Constant {
     // Table messages
     public static final String DISTRICT_TABLE = "distrito";
     public static final String PRODUCT_TABLE = "producto";
+    public static final String USER_TABLE = "usuario";
+    public static final String FAVORITE_TABLE = "favorito";
 }
