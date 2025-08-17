@@ -45,7 +45,7 @@ public class FavoritoController {
         );
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/usuario/{id}")
     public ResponseEntity<GlobalResponse> getFavoritoById(@PathVariable Long id) {
         HttpStatus status;
         Object data;
