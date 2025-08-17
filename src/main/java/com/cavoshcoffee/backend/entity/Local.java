@@ -22,9 +22,9 @@ public class Local {
     @Column(name = "direccion", nullable = false, length = 150)
     private String direccion;
 
-    // Foreign key to Distrito entity
-    @Column(name = "idDistrito", nullable = false)
-    private Integer idDistrito;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "idDistrito", nullable = false)
+    private Distrito distrito;
 
     @Column(name = "horario", nullable = false, length = 100)
     private String horario;
