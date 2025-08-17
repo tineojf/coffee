@@ -1,5 +1,6 @@
 package com.cavoshcoffee.backend.controller;
 
+import com.cavoshcoffee.backend.dto.UsuarioDTO;
 import com.cavoshcoffee.backend.entity.Usuario;
 import com.cavoshcoffee.backend.exceptions.BadRequestException;
 import com.cavoshcoffee.backend.exceptions.ResourceNotFoundException;
@@ -29,7 +30,7 @@ public class UsuarioController {
     }
 
     @GetMapping
-    public ResponseEntity<List<Usuario>> getAllUsuarios() {
+    public ResponseEntity<List<UsuarioDTO>> getAllUsuarios() {
         return ResponseEntity.ok(usuarioService.findAll());
     }
 
