@@ -34,13 +34,13 @@ public class DistritoController {
             status = HttpStatus.INTERNAL_SERVER_ERROR;
         }
 
-        GlobalResponse response = GlobalResponse.builder()
-                .ok(data != null)
-                .message(message)
-                .data(data)
-                .build();
-
-        return ResponseEntity.status(status).body(response);
+        return ResponseEntity.status(status).body(
+                GlobalResponse.builder()
+                        .ok(data != null)
+                        .message(message)
+                        .data(data)
+                        .build()
+        );
     }
 
     @GetMapping("/{id}")
@@ -59,12 +59,12 @@ public class DistritoController {
             status = HttpStatus.NOT_FOUND;
         }
 
-        GlobalResponse response = GlobalResponse.builder()
-                .ok(data != null)
-                .message(message)
-                .data(data)
-                .build();
-
-        return ResponseEntity.status(status).body(response);
+        return ResponseEntity.status(status).body(
+                GlobalResponse.builder()
+                        .ok(data != null)
+                        .message(message)
+                        .data(data)
+                        .build()
+        );
     }
 }
