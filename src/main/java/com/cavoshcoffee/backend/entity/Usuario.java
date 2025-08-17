@@ -18,10 +18,14 @@ public class Usuario {
 
     @Column(name = "nombres", nullable = false, length = 100)
     private String nombres;
-    @Column(name = "Correo", nullable = false, length = 100, unique = true)
+
+    @Column(name = "correo", nullable = false, length = 100, unique = true)
     private String correo;
-    @Column(name = "Passwordd", nullable = false, length = 100)
-    private String passwordd;
-    @Column(name = "Login", nullable = false)
+
+    @Column(name = "passwordd", nullable = false, length = 100)
+    private String password;
+
+    @Column(name = "login", nullable = false)
     private Boolean login;
+
 }

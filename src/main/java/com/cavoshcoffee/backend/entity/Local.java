@@ -16,18 +16,22 @@ public class Local {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "RazonSocial", nullable = false, length = 100)
+    @Column(name = "razonSocial", nullable = false, length = 100)
     private String razonSocial;
-    @Column(name = "Direccion", nullable = false, length = 150)
+
+    @Column(name = "direccion", nullable = false, length = 150)
     private String direccion;
+
+    // Foreign key to Distrito entity
     @Column(name = "idDistrito", nullable = false)
     private Integer idDistrito;
-    @Column(name = "Distrito", nullable = false, length = 50)
-    private String distrito;
-    @Column(name = "Horario", nullable = false, length = 100)
+
+    @Column(name = "horario", nullable = false, length = 100)
     private String horario;
-    @Column(name = "Latitud", nullable = false, length = 20)
+
+    @Column(name = "latitud", nullable = false, length = 20)
     private String latitud;
-    @Column(name = "Longitud", length = 20)
+
+    @Column(name = "longitud", nullable = false, length = 20)
     private String longitud;
 }

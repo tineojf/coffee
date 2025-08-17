@@ -20,8 +20,8 @@ create TABLE Local (
   direccion VARCHAR(150) NOT NULL,
   idDistrito INT NOT NULL,
   horario VARCHAR(100) NOT NULL,
-  latitud VARCHAR(20),
-  longitud VARCHAR(20),
+  latitud VARCHAR(20) NOT NULL,
+  longitud VARCHAR(20) NOT NULL,
   FOREIGN KEY (idDistrito) REFERENCES Distrito(id) ON update CASCADE ON delete CASCADE
 );
 
