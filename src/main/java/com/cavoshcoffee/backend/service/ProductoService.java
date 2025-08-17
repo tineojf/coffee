@@ -1,7 +1,9 @@
 package com.cavoshcoffee.backend.service;
 
+import com.cavoshcoffee.backend.dto.request.ProductoRequestDTO;
 import com.cavoshcoffee.backend.entity.Producto;
 import com.cavoshcoffee.backend.exceptions.ResourceNotFoundException;
+import com.cavoshcoffee.backend.mapper.ProductoMapper;
 import com.cavoshcoffee.backend.repository.ProductoRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -10,7 +12,7 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
-public class ProductoService implements GenericService<Producto> {
+public class ProductoService implements GenericService<Producto, ProductoRequestDTO> {
     private final ProductoRepository productoRepository;
 
     @Override
@@ -25,8 +27,9 @@ public class ProductoService implements GenericService<Producto> {
     }
 
     @Override
-    public Producto save(Producto producto) {
-        return productoRepository.save(producto);
+    public Producto save(ProductoRequestDTO producto) {
+        Producto newProducto = ProductoMapper.toEntity(producto);
+        return productoRepository.save(newProducto);
     }
 
     @Override

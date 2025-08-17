@@ -2,6 +2,7 @@ package com.cavoshcoffee.backend.controller;
 
 import com.cavoshcoffee.backend.config.Constant;
 import com.cavoshcoffee.backend.dto.GlobalResponse;
+import com.cavoshcoffee.backend.dto.request.ProductoRequestDTO;
 import com.cavoshcoffee.backend.entity.Producto;
 import com.cavoshcoffee.backend.service.ProductoService;
 import lombok.RequiredArgsConstructor;
@@ -33,14 +34,15 @@ public class ProductoController {
 
         return ResponseEntity.status(status).body(
                 GlobalResponse.builder()
+                        .ok(data != null)
                         .message(message)
                         .data(data)
                         .build()
         );
     }
 
-    @GetMapping("{id}")
-    public ResponseEntity<GlobalResponse> findById(Long id) {
+    @GetMapping("/{id}")
+    public ResponseEntity<GlobalResponse> findById(@PathVariable Long id) {
         HttpStatus status;
         Object data;
         String message;
@@ -59,6 +61,7 @@ public class ProductoController {
 
         return ResponseEntity.status(status).body(
                 GlobalResponse.builder()
+                        .ok(data != null)
                         .message(message)
                         .data(data)
                         .details(details)
@@ -67,7 +70,7 @@ public class ProductoController {
     }
 
     @PostMapping
-    public ResponseEntity<GlobalResponse> save(Producto producto) {
+    public ResponseEntity<GlobalResponse> save(@RequestBody ProductoRequestDTO producto) {
         HttpStatus status;
         Object data;
         String message;
@@ -86,6 +89,7 @@ public class ProductoController {
 
         return ResponseEntity.status(status).body(
                 GlobalResponse.builder()
+                        .ok(data != null)
                         .message(message)
                         .data(data)
                         .details(details)
@@ -93,7 +97,7 @@ public class ProductoController {
         );
     }
 
-    @DeleteMapping("{id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<GlobalResponse> deleteById(@PathVariable Long id) {
         HttpStatus status;
         String message;
@@ -111,6 +115,7 @@ public class ProductoController {
 
         return ResponseEntity.status(status).body(
                 GlobalResponse.builder()
+                        .ok(status == HttpStatus.OK)
                         .message(message)
                         .data(null)
                         .details(details)
