@@ -25,7 +25,6 @@ public class DistritoController {
 
         try {
             data = distritoService.findAll();
-            System.out.println(data);
             message = Constant.str_allRetrieved(Constant.DISTRICT_TABLE);
             status = HttpStatus.OK;
         } catch (Exception e) {
