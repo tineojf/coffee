@@ -19,10 +19,10 @@ create TABLE Local (
   razonSocial VARCHAR(100) NOT NULL,
   direccion VARCHAR(150) NOT NULL,
   idDistrito INT NOT NULL,
-  distrito VARCHAR(50) NOT NULL,
   horario VARCHAR(100) NOT NULL,
   latitud VARCHAR(20),
-  longitud VARCHAR(20)
+  longitud VARCHAR(20),
+  FOREIGN KEY (idDistrito) REFERENCES Distrito(id) ON update CASCADE ON delete CASCADE
 );
 
 -- distrito
@@ -31,22 +31,23 @@ create TABLE Distrito (
   nombre VARCHAR(50) NOT NULL
 );
 
--- favoritos
-create TABLE Favoritos (
-  id INT AUTO_INCREMENT PRIMARY KEY,
-  idUsuario INT NOT NULL,
-  idLocal INT NOT NULL,
-  FOREIGN KEY (idUsuario) REFERENCES Usuario(id) ON update CASCADE ON delete CASCADE,
-  FOREIGN KEY (idLocal) REFERENCES Local(id) ON update CASCADE ON delete CASCADE
-);
-
--- productos
+-- producto
 create TABLE Producto (
   id INT AUTO_INCREMENT PRIMARY KEY,
   nombre VARCHAR(100) NOT NULL,
   descripcion VARCHAR(255),
   precio DECIMAL(10,2) NOT NULL,
+  detalle VARCHAR(255),
+  categoria VARCHAR(50) NOT NULL,
   imagen VARCHAR(255),
-  idLocal INT NOT NULL,
-  FOREIGN KEY (idLocal) REFERENCES Local(id) ON update CASCADE ON delete CASCADE
+  esNuevo TINYINT NOT NULL DEFAULT 0
+);
+
+-- favorito
+create TABLE Favorito (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  idUsuario INT NOT NULL,
+  idProducto INT NOT NULL,
+  FOREIGN KEY (idUsuario) REFERENCES Usuario(id) ON update CASCADE ON delete CASCADE,
+  FOREIGN KEY (idProducto) REFERENCES Producto(id) ON update CASCADE ON delete CASCADE
 );
