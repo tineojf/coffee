@@ -39,7 +39,7 @@ create TABLE Producto (
   precio DECIMAL(10,2) NOT NULL,
   detalle VARCHAR(255),
   categoria VARCHAR(50) NOT NULL,
-  imagen VARCHAR(255),
+  imagen VARCHAR(255) NOT NULL,
   esNuevo TINYINT NOT NULL DEFAULT 0
 );
 
