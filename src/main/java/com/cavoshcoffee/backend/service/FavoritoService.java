@@ -2,6 +2,8 @@ package com.cavoshcoffee.backend.service;
 
 import com.cavoshcoffee.backend.dto.request.FavoritoRequestDTO;
 import com.cavoshcoffee.backend.dto.response.FavoritoResponseDTO;
+import com.cavoshcoffee.backend.entity.Favorito;
+import com.cavoshcoffee.backend.entity.Producto;
 import com.cavoshcoffee.backend.entity.Usuario;
 import com.cavoshcoffee.backend.exceptions.ResourceNotFoundException;
 import com.cavoshcoffee.backend.mapper.FavoritoMapper;
@@ -18,6 +20,7 @@ import java.util.stream.Collectors;
 public class FavoritoService {
     private final FavoritoRepository favoritoRepository;
     private final UsuarioService usuarioService;
+    private final ProductoService productoService;
 
     public List<FavoritoResponseDTO> findAll() {
         return favoritoRepository.findAll()
@@ -39,13 +42,18 @@ public class FavoritoService {
                 .collect(Collectors.toList());
     }
 
-    public void save(FavoritoRequestDTO favorito) {
+    public FavoritoResponseDTO save(FavoritoRequestDTO favorito) {
         // todo check if usuarioId exists
+        Optional<Usuario> usuario = usuarioService.findById(favorito.getIdUsuario());
+        if (usuario.isEmpty()) {
+            throw new ResourceNotFoundException("Usuario not found with id: " + favorito.getIdUsuario());
+        }
+        Producto producto = productoService.findById(favorito.getIdProducto());
 
-        // buscar producto id
+        // todo check if favorite already exists
+        Favorito newFavorito = FavoritoMapper.toEntity(usuario.get(), producto);
+        favoritoRepository.save(newFavorito);
 
-        // crear entidad Favorito
-
-        // mapear DTO a entidad
+        return FavoritoMapper.toResponseDTO(newFavorito);
     }
 }

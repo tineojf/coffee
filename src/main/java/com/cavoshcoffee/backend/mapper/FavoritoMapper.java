@@ -2,6 +2,8 @@ package com.cavoshcoffee.backend.mapper;
 
 import com.cavoshcoffee.backend.dto.response.FavoritoResponseDTO;
 import com.cavoshcoffee.backend.entity.Favorito;
+import com.cavoshcoffee.backend.entity.Producto;
+import com.cavoshcoffee.backend.entity.Usuario;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -18,5 +20,16 @@ public class FavoritoMapper {
                 .idProducto(favorito.getProducto().getId())
                 .nombreProducto(favorito.getProducto().getNombre())
                 .build();
+    }
+
+    public static Favorito toEntity(Usuario usuario, Producto producto) {
+        if (usuario == null || producto == null) {
+            return null;
+        }
+
+        Favorito newFavorito = new Favorito();
+        newFavorito.setUsuario(usuario);
+        newFavorito.setProducto(producto);
+        return newFavorito;
     }
 }

@@ -2,14 +2,12 @@ package com.cavoshcoffee.backend.controller;
 
 import com.cavoshcoffee.backend.config.Constant;
 import com.cavoshcoffee.backend.dto.GlobalResponse;
+import com.cavoshcoffee.backend.dto.request.FavoritoRequestDTO;
 import com.cavoshcoffee.backend.service.FavoritoService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping(Constant.API_VERSION + "/" + Constant.FAVORITE_TABLE)
@@ -46,7 +44,7 @@ public class FavoritoController {
     }
 
     @GetMapping("/usuario/{id}")
-    public ResponseEntity<GlobalResponse> getFavoritoById(@PathVariable Long id) {
+    public ResponseEntity<GlobalResponse> findById(@PathVariable Long id) {
         HttpStatus status;
         Object data;
         String message;
@@ -60,6 +58,34 @@ public class FavoritoController {
             data = null;
             status = HttpStatus.NOT_FOUND;
             message = "Error retrieving favoritos for user id: " + id;
+            details = e.getMessage();
+        }
+
+        return ResponseEntity.status(status).body(
+                GlobalResponse.builder()
+                        .ok(data != null)
+                        .message(message)
+                        .data(data)
+                        .details(details)
+                        .build()
+        );
+    }
+
+    @PostMapping
+    public ResponseEntity<GlobalResponse> save(@RequestBody FavoritoRequestDTO favorito) {
+        HttpStatus status;
+        Object data;
+        String message;
+        String details = null;
+
+        try {
+            data = favoritoService.save(favorito);
+            status = HttpStatus.CREATED;
+            message = "Favorito saved successfully";
+        } catch (Exception e) {
+            data = null;
+            status = HttpStatus.BAD_REQUEST;
+            message = "Error saving favorito";
             details = e.getMessage();
         }
 
