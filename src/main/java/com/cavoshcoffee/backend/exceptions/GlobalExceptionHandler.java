@@ -1,7 +1,7 @@
 package com.cavoshcoffee.backend.exceptions;
 
-import com.ecommerce.backend.config.Constant;
-import com.ecommerce.backend.dto.GlobalResponse;
+import com.cavoshcoffee.backend.config.Constant;
+import com.cavoshcoffee.backend.dto.GlobalResponse;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
