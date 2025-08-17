@@ -4,7 +4,6 @@ import com.cavoshcoffee.backend.config.Constant;
 import com.cavoshcoffee.backend.dto.GlobalResponse;
 import com.cavoshcoffee.backend.service.DistritoService;
 import lombok.RequiredArgsConstructor;
-import org.apache.logging.log4j.message.StringFormattedMessage;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
