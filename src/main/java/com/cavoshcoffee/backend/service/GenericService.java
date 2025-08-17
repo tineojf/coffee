@@ -2,12 +2,12 @@ package com.cavoshcoffee.backend.service;
 
 import java.util.List;
 
-public interface GenericService<T> {
+public interface GenericService<T, S> {
     List<T> findAll();
 
     T findById(Long id);
 
-    T save(T entity);
+    T save(S entity);
 
     void deleteById(Long id);
 }

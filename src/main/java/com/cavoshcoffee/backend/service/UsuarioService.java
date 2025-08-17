@@ -1,11 +1,10 @@
 package com.cavoshcoffee.backend.service;
 
-import com.cavoshcoffee.backend.dto.UsuarioDTO;
+import com.cavoshcoffee.backend.dto.response.UsuarioResponseDTO;
 import com.cavoshcoffee.backend.entity.Usuario;
 import com.cavoshcoffee.backend.mapper.UsuarioMapper;
 import com.cavoshcoffee.backend.repository.UsuarioRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -18,7 +17,7 @@ public class UsuarioService {
     private final UsuarioRepository usuarioRepository;
     private final UsuarioMapper usuarioMapper;
 
-    public List<UsuarioDTO> findAll() {
+    public List<UsuarioResponseDTO> findAll() {
         return usuarioRepository.findAll()
                 .stream()
                 .map(UsuarioMapper::toDTO)
