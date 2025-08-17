@@ -28,7 +28,7 @@ create TABLE producto (
   detalle VARCHAR(255),
   categoria VARCHAR(50) NOT NULL,
   imagen VARCHAR(255) NOT NULL,
-  esNuevo TINYINT NOT NULL DEFAULT 0
+  esNuevo TINYINT NOT NULL DEFAULT 1
 );
 
 -- local
