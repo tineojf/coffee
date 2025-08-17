@@ -57,7 +57,7 @@ public class LocalController {
             localService.deleteById(id);
             return ResponseEntity.ok("Local eliminado exitosamente");
         } else {
-            throw new  ResourceNotFoundException("El Local con ID " + id + " no existe. No se puede eliminar.");
+            throw new ResourceNotFoundException("El Local con ID " + id + " no existe. No se puede eliminar.");
         }
     }
 }

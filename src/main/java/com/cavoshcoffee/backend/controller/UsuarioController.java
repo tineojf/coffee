@@ -15,7 +15,7 @@ import java.util.Optional;
 @RequestMapping("/api/v1/usuario")
 public class UsuarioController {
     @Autowired
-    private  UsuarioService usuarioService;
+    private UsuarioService usuarioService;
 
     @PostMapping
     public ResponseEntity<String> createUsuario(@RequestBody Usuario usuario) throws BadRequestException {
@@ -39,7 +39,7 @@ public class UsuarioController {
         return usuarioBuscado.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
-   @PutMapping
+    @PutMapping
     public ResponseEntity<String> createOrUpdateUsuario(@RequestBody Usuario usuario) {
         Optional<Usuario> usuarioBuscado = usuarioService.findById(usuario.getId());
         if (usuarioBuscado.isPresent()) {
@@ -57,7 +57,7 @@ public class UsuarioController {
             usuarioService.deleteById(id);
             return ResponseEntity.ok("Usuario eliminado exitosamente");
         } else {
-            throw new  ResourceNotFoundException("El usuario con ID " + id + " no existe. No se puede eliminar.");
+            throw new ResourceNotFoundException("El usuario con ID " + id + " no existe. No se puede eliminar.");
         }
     }
 }
