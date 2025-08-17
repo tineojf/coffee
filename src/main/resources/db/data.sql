@@ -1,4 +1,6 @@
-insert into usuario(nombres,correo, passwordd) values ('admin','admin@mail.com','admin123');
+insert into usuario (nombres, correo, passwordd) values
+('admin', 'admin@mail.com', 'admin123'),
+('user', 'user@gmail.com', 'user123');
 
 -- insert distrito
 insert into distrito (nombre) values
@@ -44,3 +46,18 @@ insert into producto (nombre, descripcion, precio, detalle, categoria, imagen, e
 ('Té Verde', 'Infusión de té verde natural', 7.00, 'Taza 8oz', 'Infusiones', 'https://static.vecteezy.com/system/resources/thumbnails/040/174/391/small/ai-generated-pictures-of-delicious-and-beautiful-drinks-photo.jpg', 0),
 ('Limonada Frozen', 'Refrescante limonada frappé', 8.50, 'Vaso 16oz', 'Bebida fría', 'https://static.vecteezy.com/system/resources/thumbnails/040/174/391/small/ai-generated-pictures-of-delicious-and-beautiful-drinks-photo.jpg', 1),
 ('Agua Mineral', 'Botella de agua sin gas', 3.50, '500ml', 'Otros', 'https://static.vecteezy.com/system/resources/thumbnails/040/174/391/small/ai-generated-pictures-of-delicious-and-beautiful-drinks-photo.jpg', 0);
+
+
+-- Favoritos de admin
+insert into favorito(idUsuario, idProducto) values
+(1, 1),  -- Café Americano
+(1, 3),  -- Cappuccino
+(1, 7),  -- Iced Latte
+(1, 10); -- Sándwich de Pollo
+
+-- Favoritos de Maria Lopez
+insert into favorito(idUsuario, idProducto) values
+(2, 2),  -- Espresso
+(2, 4),  -- Latte
+(2, 8),  -- Croissant
+(2, 12); -- Limonada Frozen
