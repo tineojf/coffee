@@ -1,0 +1,1 @@
+insert into Usuario(nombres,correo, passwordd) values ('admin','admin@mail.com','admin123');

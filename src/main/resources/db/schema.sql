@@ -1,7 +1,7 @@
 -- Script SQL - DB CavoshCoffee
-drop database IF EXISTS cavoshcoffee;
-create DATABASE cavoshcoffee;
-USE cavoshcoffee;
+--drop database IF EXISTS cavoshcoffee;
+--create DATABASE cavoshcoffee;
+--USE cavoshcoffee;
 
 -- Tablas --
 -- usuario
@@ -11,18 +11,6 @@ create TABLE Usuario (
   correo VARCHAR(100) UNIQUE NOT NULL,
   passwordd VARCHAR(100) NOT NULL,
   login TINYINT NOT NULL DEFAULT 0
-);
-
--- local
-create TABLE Local (
-  id INT AUTO_INCREMENT PRIMARY KEY,
-  razonSocial VARCHAR(100) NOT NULL,
-  direccion VARCHAR(150) NOT NULL,
-  idDistrito INT NOT NULL,
-  horario VARCHAR(100) NOT NULL,
-  latitud VARCHAR(20) NOT NULL,
-  longitud VARCHAR(20) NOT NULL,
-  FOREIGN KEY (idDistrito) REFERENCES Distrito(id) ON update CASCADE ON delete CASCADE
 );
 
 -- distrito
@@ -41,6 +29,18 @@ create TABLE Producto (
   categoria VARCHAR(50) NOT NULL,
   imagen VARCHAR(255) NOT NULL,
   esNuevo TINYINT NOT NULL DEFAULT 0
+);
+
+-- local
+create TABLE Local (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  razonSocial VARCHAR(100) NOT NULL,
+  direccion VARCHAR(150) NOT NULL,
+  idDistrito INT NOT NULL,
+  horario VARCHAR(100) NOT NULL,
+  latitud VARCHAR(20) NOT NULL,
+  longitud VARCHAR(20) NOT NULL,
+  FOREIGN KEY (idDistrito) REFERENCES Distrito(id) ON update CASCADE ON delete CASCADE
 );
 
 -- favorito
