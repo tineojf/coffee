@@ -5,6 +5,7 @@ import com.cavoshcoffee.backend.dto.response.FavoritoResponseDTO;
 import com.cavoshcoffee.backend.entity.Favorito;
 import com.cavoshcoffee.backend.entity.Producto;
 import com.cavoshcoffee.backend.entity.Usuario;
+import com.cavoshcoffee.backend.exceptions.EntityAlreadyExistsException;
 import com.cavoshcoffee.backend.exceptions.ResourceNotFoundException;
 import com.cavoshcoffee.backend.mapper.FavoritoMapper;
 import com.cavoshcoffee.backend.repository.FavoritoRepository;
@@ -43,14 +44,22 @@ public class FavoritoService {
     }
 
     public FavoritoResponseDTO save(FavoritoRequestDTO favorito) {
-        // todo check if usuarioId exists
+        // todo check if usuarioId exists & productoId exists & favorito exists
         Optional<Usuario> usuario = usuarioService.findById(favorito.getIdUsuario());
         if (usuario.isEmpty()) {
             throw new ResourceNotFoundException("Usuario not found with id: " + favorito.getIdUsuario());
         }
+
         Producto producto = productoService.findById(favorito.getIdProducto());
 
-        // todo check if favorite already exists
+        Optional<Favorito> existingFavorito = favoritoRepository.findByUsuarioIdAndProductoId(favorito.getIdUsuario(), favorito.getIdProducto());
+        if (existingFavorito.isPresent()) {
+            throw new EntityAlreadyExistsException("Favorito already exists for usuarioId: "
+                    + favorito.getIdUsuario()
+                    + " and productoId: "
+                    + favorito.getIdProducto());
+        }
+
         Favorito newFavorito = FavoritoMapper.toEntity(usuario.get(), producto);
         favoritoRepository.save(newFavorito);
 
