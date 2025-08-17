@@ -28,6 +28,6 @@ public class Local {
     private String horario;
     @Column(name = "Latitud", nullable = false, length = 20)
     private String latitud;
-    @Column(name = "Longitud", nullable = true, length = 20)
+    @Column(name = "Longitud", length = 20)
     private String longitud;
 }
