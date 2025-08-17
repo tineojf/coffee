@@ -66,3 +66,53 @@ BEGIN
     SELECT * FROM Local WHERE id = pId;
 END $$
 DELIMITER ;
+
+
+DELIMITER $$
+-- Usuario
+CREATE PROCEDURE sp_get_usuarios()
+BEGIN
+    SELECT * FROM usuario;
+END $$
+
+-- Distrito
+CREATE PROCEDURE sp_get_distritos()
+BEGIN
+    SELECT * FROM distrito;
+END $$
+
+-- Producto
+CREATE PROCEDURE sp_get_productos()
+BEGIN
+    SELECT * FROM producto;
+END $$
+
+-- Local
+CREATE PROCEDURE sp_get_locales()
+BEGIN
+    SELECT l.id, l.razonSocial, l.direccion, d.nombre AS distrito, l.horario, l.latitud, l.longitud
+    FROM local l
+    JOIN distrito d ON l.idDistrito = d.id;
+END $$
+
+-- Favorito
+CREATE PROCEDURE sp_get_favoritos()
+BEGIN
+    SELECT f.id, u.nombres AS usuario, p.nombre AS producto
+    FROM favorito f
+    JOIN usuario u ON f.idUsuario = u.id
+    JOIN producto p ON f.idProducto = p.id;
+END $$
+
+CREATE PROCEDURE sp_get_favoritos_by_usuario(
+    IN p_idUsuario INT
+)
+BEGIN
+    SELECT f.id, u.nombres AS usuario, p.nombre AS producto
+    FROM favorito f
+    JOIN usuario u ON f.idUsuario = u.id
+    JOIN producto p ON f.idProducto = p.id
+    WHERE f.idUsuario = p_idUsuario;
+END $$
+
+DELIMITER ;
