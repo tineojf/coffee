@@ -4,6 +4,7 @@ import com.cavoshcoffee.backend.config.Constant;
 import com.cavoshcoffee.backend.dto.GlobalResponse;
 import com.cavoshcoffee.backend.service.DistritoService;
 import lombok.RequiredArgsConstructor;
+import org.apache.logging.log4j.message.StringFormattedMessage;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,11 +27,11 @@ public class DistritoController {
         try {
             data = distritoService.findAll();
             System.out.println(data);
-            message = Constant.DISTRICT_ALL_RETRIEVED;
+            message = Constant.str_allRetrieved(Constant.DISTRICT_TABLE);
             status = HttpStatus.OK;
         } catch (Exception e) {
             data = null;
-            message = Constant.DISTRICT_GENERAL_ERROR;
+            message = Constant.str_generalError(Constant.DISTRICT_TABLE);
             status = HttpStatus.INTERNAL_SERVER_ERROR;
         }
 
@@ -51,11 +52,11 @@ public class DistritoController {
 
         try {
             data = distritoService.findById(id);
-            message = Constant.DISTRICT_RETRIEVED + id;
+            message = Constant.str_retrieved(Constant.DISTRICT_TABLE, id);
             status = HttpStatus.OK;
         } catch (Exception e) {
             data = null;
-            message = Constant.DISTRICT_NOT_FOUND + id;
+            message = Constant.str_notFound(Constant.DISTRICT_TABLE, id);
             status = HttpStatus.NOT_FOUND;
         }
 
