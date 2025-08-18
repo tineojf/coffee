@@ -1,10 +1,11 @@
 package com.cavoshcoffee.backend.controller;
 
+import com.cavoshcoffee.backend.config.Constant;
 import com.cavoshcoffee.backend.entity.Local;
 import com.cavoshcoffee.backend.exceptions.BadRequestException;
 import com.cavoshcoffee.backend.exceptions.ResourceNotFoundException;
 import com.cavoshcoffee.backend.service.LocalService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,42 +13,42 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/v1/local")
+@RequestMapping(Constant.API_VERSION + "/" + Constant.LOCAL_TABLE)
+@RequiredArgsConstructor
 public class LocalController {
-    @Autowired
-    private LocalService localService;
 
-    @PostMapping
+    private final LocalService localService;
+
+    @PostMapping("/crear")
     public ResponseEntity<String> createLocal(@RequestBody Local local) throws BadRequestException {
-        Optional<Local> localBuscado = localService.findById(local.getId());
-        if (localBuscado.isPresent()) {
+        if (local.getId() != null && localService.findById(local.getId()).isPresent()) {
             throw new BadRequestException("El Local con ID " + local.getId() + " ya existe. No se puede crear.");
-        } else {
-            localService.save(local);
-            return ResponseEntity.ok("Local creado exitosamente");
         }
+        Local nuevo = localService.save(local);
+        return ResponseEntity.ok("Local creado exitosamente con ID: " + nuevo.getId());
     }
 
-    @GetMapping
+    @GetMapping("/listar")
     public ResponseEntity<List<Local>> getAllLocales() {
         return ResponseEntity.ok(localService.findAll());
     }
 
     @GetMapping("/buscarPorId/{id}")
-    public ResponseEntity<Local> getLocalById(Long id) {
-        Optional<Local> localBuscado = localService.findById(id);
-        return localBuscado.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
+    public ResponseEntity<Local> getLocalById(@PathVariable Long id) throws ResourceNotFoundException {
+        return localService.findById(id)
+                .map(ResponseEntity::ok)
+                .orElseThrow(() -> new ResourceNotFoundException("El Local con ID " + id + " no existe."));
     }
 
-    @PutMapping
-    public ResponseEntity<String> updateLocal(@RequestBody Local local) {
-        Optional<Local> localBuscado = localService.findById(local.getId());
-        if (localBuscado.isPresent()) {
-            localService.save(local);
-            return ResponseEntity.ok("Local actualizado exitosamente");
-        } else {
-            return ResponseEntity.badRequest().body("El Local con ID " + local.getId() + " no existe. No se puede actualizar.");
+    @PutMapping("/actualizar/{id}")
+    public ResponseEntity<String> updateLocal(@PathVariable Long id, @RequestBody Local local) throws ResourceNotFoundException {
+        Optional<Local> localBuscado = localService.findById(id);
+        if (localBuscado.isEmpty()) {
+            throw new ResourceNotFoundException("El Local con ID " + id + " no existe. No se puede actualizar.");
         }
+        local.setId(id);
+        localService.save(local);
+        return ResponseEntity.ok("Local actualizado exitosamente con ID: " + id);
     }
 
     @DeleteMapping("/eliminar/{id}")
@@ -55,7 +56,7 @@ public class LocalController {
         Optional<Local> localBuscado = localService.findById(id);
         if (localBuscado.isPresent()) {
             localService.deleteById(id);
-            return ResponseEntity.ok("Local eliminado exitosamente");
+            return ResponseEntity.ok("Local eliminado exitosamente con ID: " + id);
         } else {
             throw new ResourceNotFoundException("El Local con ID " + id + " no existe. No se puede eliminar.");
         }

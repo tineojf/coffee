@@ -14,4 +14,5 @@ public class Constant {
     public static final String PRODUCT_TABLE = "producto";
     public static final String USER_TABLE = "usuario";
     public static final String FAVORITE_TABLE = "favorito";
+    public static final String  LOCAL_TABLE = "local";
 }
