@@ -57,4 +57,8 @@ public class UsuarioService {
         }
         return Optional.empty();
     }
+    public String encodePassword(String rawPassword) {
+        return passwordEncoder.encode(rawPassword);
+    }
+
 }

@@ -155,7 +155,19 @@ public class UsuarioController {
         try {
             Optional<Usuario> usuarioBuscado = usuarioService.findById(usuario.getId());
             if (usuarioBuscado.isPresent()) {
-                Usuario actualizado = usuarioService.save(usuario);
+                Usuario existente = usuarioBuscado.get();
+
+                // Solo actualizas los campos editables
+                existente.setNombres(usuario.getNombres());
+                existente.setCorreo(usuario.getCorreo());
+
+                if (usuario.getPasswordd() != null && !usuario.getPasswordd().isBlank()) {
+                    existente.setPasswordd(usuarioService.encodePassword(usuario.getPasswordd()));
+                }
+
+                // OJO: no tocamos el login, porque ya existe y es NOT NULL
+                Usuario actualizado = usuarioService.save(existente);
+
                 data = actualizado;
                 status = HttpStatus.OK;
                 message = "Usuario actualizado exitosamente";

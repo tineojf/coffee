@@ -1,11 +1,14 @@
 package com.cavoshcoffee.backend.controller;
 
 import com.cavoshcoffee.backend.config.Constant;
+import com.cavoshcoffee.backend.dto.GlobalResponse;
+import com.cavoshcoffee.backend.dto.response.LocalResponseDTO;
 import com.cavoshcoffee.backend.entity.Local;
 import com.cavoshcoffee.backend.exceptions.BadRequestException;
 import com.cavoshcoffee.backend.exceptions.ResourceNotFoundException;
 import com.cavoshcoffee.backend.service.LocalService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,45 +23,173 @@ public class LocalController {
     private final LocalService localService;
 
     @PostMapping("/crear")
-    public ResponseEntity<String> createLocal(@RequestBody Local local) throws BadRequestException {
-        if (local.getId() != null && localService.findById(local.getId()).isPresent()) {
-            throw new BadRequestException("El Local con ID " + local.getId() + " ya existe. No se puede crear.");
+    public ResponseEntity<GlobalResponse> registrarLocal(@RequestBody Local local) {
+        HttpStatus status;
+        Object data;
+        String message;
+        String details = null;
+
+        try {
+            Local nuevo = localService.save(local);
+            data = nuevo;
+            status = HttpStatus.CREATED;
+            message = "Local registrado exitosamente con ID: " + nuevo.getId();
+        } catch (Exception e) {
+            status = HttpStatus.BAD_REQUEST;
+            data = null;
+            message = "Error al registrar local";
+            details = e.getMessage();
         }
-        Local nuevo = localService.save(local);
-        return ResponseEntity.ok("Local creado exitosamente con ID: " + nuevo.getId());
+
+        return ResponseEntity.status(status).body(
+                GlobalResponse.builder()
+                        .ok(status == HttpStatus.CREATED)
+                        .message(message)
+                        .data(data)
+                        .details(details)
+                        .build()
+        );
     }
 
-    @GetMapping("/listar")
-    public ResponseEntity<List<Local>> getAllLocales() {
-        return ResponseEntity.ok(localService.findAll());
+    @GetMapping
+    public ResponseEntity<GlobalResponse> getAllLocales() {
+        HttpStatus status;
+        Object data;
+        String message;
+        String details = null;
+
+        try {
+
+            data = localService.findAll();
+            status = HttpStatus.OK;
+            message = "Todos los locales obtenidos correctamente";
+        } catch (Exception e) {
+            status = HttpStatus.INTERNAL_SERVER_ERROR;
+            data = null;
+            message = "Error al obtener locales";
+            details = e.getMessage();
+        }
+
+        return ResponseEntity.status(status).body(
+                GlobalResponse.builder()
+                        .ok(data != null)
+                        .message(message)
+                        .data(data)
+                        .details(details)
+                        .build()
+        );
     }
 
     @GetMapping("/buscarPorId/{id}")
-    public ResponseEntity<Local> getLocalById(@PathVariable Long id) throws ResourceNotFoundException {
-        return localService.findById(id)
-                .map(ResponseEntity::ok)
-                .orElseThrow(() -> new ResourceNotFoundException("El Local con ID " + id + " no existe."));
+    public ResponseEntity<GlobalResponse> getLocalById(@PathVariable Long id) {
+        HttpStatus status;
+        Object data;
+        String message;
+        String details = null;
+
+        try {
+            Optional<Local> localBuscado = localService.findById(id);
+            if (localBuscado.isPresent()) {
+                data = localBuscado.get();
+                status = HttpStatus.OK;
+                message = "Local encontrado con id: " + id;
+            } else {
+                status = HttpStatus.NOT_FOUND;
+                data = null;
+                message = "Local no encontrado con id: " + id;
+            }
+        } catch (Exception e) {
+            status = HttpStatus.INTERNAL_SERVER_ERROR;
+            data = null;
+            message = "Error al buscar local con id: " + id;
+            details = e.getMessage();
+        }
+
+        return ResponseEntity.status(status).body(
+                GlobalResponse.builder()
+                        .ok(data != null)
+                        .message(message)
+                        .data(data)
+                        .details(details)
+                        .build()
+        );
     }
 
-    @PutMapping("/actualizar/{id}")
-    public ResponseEntity<String> updateLocal(@PathVariable Long id, @RequestBody Local local) throws ResourceNotFoundException {
-        Optional<Local> localBuscado = localService.findById(id);
-        if (localBuscado.isEmpty()) {
-            throw new ResourceNotFoundException("El Local con ID " + id + " no existe. No se puede actualizar.");
+    @PutMapping
+    public ResponseEntity<GlobalResponse> updateLocal(@RequestBody Local local) {
+        HttpStatus status;
+        Object data;
+        String message;
+        String details = null;
+
+        try {
+            Optional<Local> localBuscado = localService.findById(local.getId());
+            if (localBuscado.isPresent()) {
+                Local existente = localBuscado.get();
+
+                existente.setRazonSocial(local.getRazonSocial());
+                existente.setDireccion(local.getDireccion());
+                existente.setDistrito(local.getDistrito());
+                existente.setHorario(local.getHorario());
+                existente.setLatitud(local.getLatitud());
+                existente.setLongitud(local.getLongitud());
+
+                Local actualizado = localService.save(existente);
+
+                data = actualizado;
+                status = HttpStatus.OK;
+                message = "Local actualizado exitosamente";
+            } else {
+                status = HttpStatus.BAD_REQUEST;
+                data = null;
+                message = "El local con ID " + local.getId() + " no existe. No se puede actualizar.";
+            }
+        } catch (Exception e) {
+            status = HttpStatus.INTERNAL_SERVER_ERROR;
+            data = null;
+            message = "Error al actualizar local";
+            details = e.getMessage();
         }
-        local.setId(id);
-        localService.save(local);
-        return ResponseEntity.ok("Local actualizado exitosamente con ID: " + id);
+
+        return ResponseEntity.status(status).body(
+                GlobalResponse.builder()
+                        .ok(status == HttpStatus.OK)
+                        .message(message)
+                        .data(data)
+                        .details(details)
+                        .build()
+        );
     }
 
     @DeleteMapping("/eliminar/{id}")
-    public ResponseEntity<String> deleteLocal(@PathVariable Long id) throws ResourceNotFoundException {
-        Optional<Local> localBuscado = localService.findById(id);
-        if (localBuscado.isPresent()) {
-            localService.deleteById(id);
-            return ResponseEntity.ok("Local eliminado exitosamente con ID: " + id);
-        } else {
-            throw new ResourceNotFoundException("El Local con ID " + id + " no existe. No se puede eliminar.");
+    public ResponseEntity<GlobalResponse> deleteLocal(@PathVariable Long id) {
+        HttpStatus status;
+        String message;
+        String details = null;
+
+        try {
+            Optional<Local> localBuscado = localService.findById(id);
+            if (localBuscado.isPresent()) {
+                localService.deleteById(id);
+                status = HttpStatus.OK;
+                message = "Local eliminado exitosamente con id: " + id;
+            } else {
+                status = HttpStatus.NOT_FOUND;
+                message = "El local con ID " + id + " no existe. No se puede eliminar.";
+            }
+        } catch (Exception e) {
+            status = HttpStatus.INTERNAL_SERVER_ERROR;
+            message = "Error al eliminar local con id: " + id;
+            details = e.getMessage();
         }
+
+        return ResponseEntity.status(status).body(
+                GlobalResponse.builder()
+                        .ok(status == HttpStatus.OK)
+                        .message(message)
+                        .data(null)
+                        .details(details)
+                        .build()
+        );
     }
 }

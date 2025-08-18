@@ -1,5 +1,6 @@
 package com.cavoshcoffee.backend.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -24,6 +25,7 @@ public class Local {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "idDistrito", nullable = false)
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private Distrito distrito;
 
     @Column(name = "horario", nullable = false, length = 100)
