@@ -39,7 +39,7 @@ entorno de desarrollo.
 
     ```bash
     Driver Class: org.h2.Driver
-    JDBC URL: jdbc:h2:mem:testdb 
+    JDBC URL: jdbc:h2:mem:coffee
     User: sa
     Password: (vacio)
     ```
