@@ -2,17 +2,13 @@ package com.cavoshcoffee.backend.controller;
 
 import com.cavoshcoffee.backend.config.Constant;
 import com.cavoshcoffee.backend.dto.GlobalResponse;
-import com.cavoshcoffee.backend.dto.response.LocalResponseDTO;
 import com.cavoshcoffee.backend.entity.Local;
-import com.cavoshcoffee.backend.exceptions.BadRequestException;
-import com.cavoshcoffee.backend.exceptions.ResourceNotFoundException;
 import com.cavoshcoffee.backend.service.LocalService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -80,7 +76,7 @@ public class LocalController {
         );
     }
 
-    @GetMapping("/buscarPorId/{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<GlobalResponse> getLocalById(@PathVariable Long id) {
         HttpStatus status;
         Object data;

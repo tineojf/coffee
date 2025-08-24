@@ -61,3 +61,10 @@ insert into favorito(idUsuario, idProducto) values
 (2, 4),  -- Latte
 (2, 8),  -- Croissant
 (2, 12); -- Limonada Frozen
+
+-- Insertar locales
+INSERT INTO local (razonSocial, direccion, idDistrito, horario, latitud, longitud) VALUES
+('Cavosh Coffee Miraflores', 'Av. Larco 1234', 1, 'Lun-Dom 7:00am - 10:00pm', '-12.123456', '-77.032123'),
+('Cavosh Coffee San Isidro', 'Calle Los Sauces 567', 2, 'Lun-Vie 7:30am - 9:00pm', '-12.099876', '-77.036543'),
+('Cavosh Coffee Barranco', 'Av. Grau 890', 3, 'Lun-Dom 8:00am - 11:00pm', '-12.144321', '-77.022345'),
+('Cavosh Coffee Surco', 'Av. Primavera 456', 4, 'Lun-Sab 7:00am - 9:30pm', '-12.145678', '-77.012987');
