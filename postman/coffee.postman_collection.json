@@ -1,0 +1,2115 @@
+{
+	"info": {
+		"_postman_id": "3118fbf3-61d5-4446-97d5-dd736ea9f7e5",
+		"name": "coffee",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31370436",
+		"_collection_link": "https://backend-9752.postman.co/workspace/coffee~4b8cef33-9f8b-4c19-924a-6c340d3ef7d5/collection/31370436-3118fbf3-61d5-4446-97d5-dd736ea9f7e5?action=share&source=collection_link&creator=31370436"
+	},
+	"item": [
+		{
+			"name": "usuario",
+			"item": [
+				{
+					"name": "{{URL}}/usuario/registrar",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombres\": \"demo\",\n    \"correo\": \"demo@mail.com\",\n    \"passwordd\": \"123456\",\n    \"login\": true\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/usuario/registrar",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"usuario",
+								"registrar"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "ok",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"nombres\": \"demo\",\n    \"correo\": \"demo@mail.com\",\n    \"passwordd\": \"123456\",\n    \"login\": true\n}\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/usuario/registrar",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"usuario",
+										"registrar"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 24 Aug 2025 15:30:56 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"ok\": true,\n    \"message\": \"Usuario registrado exitosamente con ID: 4\",\n    \"data\": {\n        \"id\": 4,\n        \"nombres\": \"demo\",\n        \"correo\": \"demo@mail.com\",\n        \"passwordd\": \"$2a$10$gnlkTAB0Pq35.UNwMCmp8ujTMBmxD0BzyAt1A74Hbx99xDM9YK5Iq\",\n        \"login\": true\n    },\n    \"timestamp\": \"2025-08-24T10:30:56.332992133\",\n    \"details\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "{{URL}}/usuario/login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"correo\": \"demo@mail.com\",\n    \"passwordd\": \"123456\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/usuario/login",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"usuario",
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "ok",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"correo\": \"demo@mail.com\",\n    \"passwordd\": \"123456\"\n}\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/usuario/login",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"usuario",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 24 Aug 2025 15:31:03 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"ok\": true,\n    \"message\": \"Login exitoso\",\n    \"data\": {\n        \"id\": 4,\n        \"nombres\": \"demo\",\n        \"correo\": \"demo@mail.com\",\n        \"passwordd\": \"$2a$10$gnlkTAB0Pq35.UNwMCmp8ujTMBmxD0BzyAt1A74Hbx99xDM9YK5Iq\",\n        \"login\": true\n    },\n    \"timestamp\": \"2025-08-24T10:31:03.812112115\",\n    \"details\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "{{URL}}/usuario",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/usuario",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"usuario"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "ok",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/usuario",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"usuario"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 24 Aug 2025 15:31:58 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"ok\": true,\n    \"message\": \"Todos los usuarios obtenidos correctamente\",\n    \"data\": [\n        {\n            \"id\": 1,\n            \"nombres\": \"admin\",\n            \"email\": \"admin@mail.com\"\n        },\n        {\n            \"id\": 2,\n            \"nombres\": \"user\",\n            \"email\": \"user@gmail.com\"\n        },\n        {\n            \"id\": 3,\n            \"nombres\": \"Joao\",\n            \"email\": \"joao@example.com\"\n        },\n        {\n            \"id\": 4,\n            \"nombres\": \"demo\",\n            \"email\": \"demo@mail.com\"\n        }\n    ],\n    \"timestamp\": \"2025-08-24T10:31:58.144723607\",\n    \"details\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "{{URL}}/usuario/1",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/usuario/1",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"usuario",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "ok",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/usuario/1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"usuario",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 24 Aug 2025 15:33:22 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"ok\": true,\n    \"message\": \"Usuario encontrado con id: 1\",\n    \"data\": {\n        \"id\": 1,\n        \"nombres\": \"admin\",\n        \"correo\": \"admin@mail.com\",\n        \"passwordd\": \"admin123\",\n        \"login\": false\n    },\n    \"timestamp\": \"2025-08-24T10:33:22.688155839\",\n    \"details\": null\n}"
+						},
+						{
+							"name": "not found",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/usuario/12",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"usuario",
+										"12"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 24 Aug 2025 15:34:25 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"ok\": false,\n    \"message\": \"Usuario no encontrado con id: 12\",\n    \"data\": null,\n    \"timestamp\": \"2025-08-24T10:34:25.859791594\",\n    \"details\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "{{URL}}/usuario",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id\": 1,\n  \"nombres\": \"demo update\",\n  \"correo\": \"demo@update.com\",\n  \"passwordd\": \"123456\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/usuario",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"usuario"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "ok",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"id\": 1,\n  \"nombres\": \"demo update\",\n  \"correo\": \"demo@update.com\",\n  \"passwordd\": \"123456\"\n}\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/usuario",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"usuario"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 24 Aug 2025 15:34:08 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"ok\": true,\n    \"message\": \"Usuario actualizado exitosamente\",\n    \"data\": {\n        \"id\": 1,\n        \"nombres\": \"demo update\",\n        \"correo\": \"demo@update.com\",\n        \"passwordd\": \"$2a$10$eK50UCcbAU7EsRVoPvokyOemMkkppDngxcR8hx637cSoQHRbkyaNC\",\n        \"login\": false\n    },\n    \"timestamp\": \"2025-08-24T10:34:08.585044176\",\n    \"details\": null\n}"
+						},
+						{
+							"name": "not found",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"id\": 12,\n  \"nombres\": \"demo update\",\n  \"correo\": \"demo@update.com\",\n  \"passwordd\": \"123456\"\n}\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/usuario",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"usuario"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 24 Aug 2025 15:34:16 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"ok\": false,\n    \"message\": \"El usuario con ID 12 no existe. No se puede actualizar.\",\n    \"data\": null,\n    \"timestamp\": \"2025-08-24T10:34:16.841998338\",\n    \"details\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "{{URL}}/usuario/eliminar/1",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/usuario/eliminar/3",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"usuario",
+								"eliminar",
+								"3"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "ok",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/usuario/eliminar/3",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"usuario",
+										"eliminar",
+										"3"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 24 Aug 2025 15:35:17 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"ok\": true,\n    \"message\": \"Usuario eliminado exitosamente con id: 3\",\n    \"data\": null,\n    \"timestamp\": \"2025-08-24T10:35:17.248819272\",\n    \"details\": null\n}"
+						},
+						{
+							"name": "not found",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/usuario/eliminar/33",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"usuario",
+										"eliminar",
+										"33"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 24 Aug 2025 15:35:43 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"ok\": false,\n    \"message\": \"El usuario con ID 33 no existe. No se puede eliminar.\",\n    \"data\": null,\n    \"timestamp\": \"2025-08-24T10:35:43.120026129\",\n    \"details\": null\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "distrito",
+			"item": [
+				{
+					"name": "{{URL}}/distrito",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/distrito",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"distrito"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "ok",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/distrito",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"distrito"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 17 Aug 2025 15:06:09 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"ok\": true,\n    \"message\": \"Distritos retrieved successfully\",\n    \"data\": [\n        {\n            \"id\": 1,\n            \"nombre\": \"Miraflores\"\n        },\n        {\n            \"id\": 2,\n            \"nombre\": \"San Isidro\"\n        },\n        {\n            \"id\": 3,\n            \"nombre\": \"San Borja\"\n        },\n        {\n            \"id\": 4,\n            \"nombre\": \"Santiago de Surco\"\n        },\n        {\n            \"id\": 5,\n            \"nombre\": \"La Molina\"\n        },\n        {\n            \"id\": 6,\n            \"nombre\": \"San Miguel\"\n        },\n        {\n            \"id\": 7,\n            \"nombre\": \"Magdalena del Mar\"\n        },\n        {\n            \"id\": 8,\n            \"nombre\": \"Pueblo Libre\"\n        },\n        {\n            \"id\": 9,\n            \"nombre\": \"Jesús María\"\n        },\n        {\n            \"id\": 10,\n            \"nombre\": \"Lince\"\n        },\n        {\n            \"id\": 11,\n            \"nombre\": \"Barranco\"\n        },\n        {\n            \"id\": 12,\n            \"nombre\": \"Chorrillos\"\n        },\n        {\n            \"id\": 13,\n            \"nombre\": \"Villa El Salvador\"\n        },\n        {\n            \"id\": 14,\n            \"nombre\": \"San Juan de Lurigancho\"\n        },\n        {\n            \"id\": 15,\n            \"nombre\": \"Comas\"\n        }\n    ],\n    \"timestamp\": \"2025-08-17T10:06:09.645308757\",\n    \"details\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "{{URL}}/distrito/1",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/distrito/1",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"distrito",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "ok",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/distrito/1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"distrito",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 17 Aug 2025 15:30:05 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"ok\": true,\n    \"message\": \"Distrito retrieved - id: 1\",\n    \"data\": {\n        \"id\": 1,\n        \"nombre\": \"Miraflores\"\n    },\n    \"timestamp\": \"2025-08-17T10:30:05.977459381\",\n    \"details\": null\n}"
+						},
+						{
+							"name": "not found",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/distrito/111",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"distrito",
+										"111"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 17 Aug 2025 16:15:59 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"ok\": false,\n    \"message\": \"Error retrieving distrito with id: 111\",\n    \"data\": null,\n    \"timestamp\": \"2025-08-17T11:15:59.728250281\",\n    \"details\": \"Distrito not found - id: 111\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "producto",
+			"item": [
+				{
+					"name": "{{URL}}/producto",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/producto",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"producto"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "ok",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/producto",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"producto"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 17 Aug 2025 16:28:24 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"ok\": null,\n    \"message\": \"All producto retrieved\",\n    \"data\": [\n        {\n            \"id\": 1,\n            \"nombre\": \"Café Americano\",\n            \"descripcion\": \"Café filtrado estilo americano\",\n            \"precio\": 6.5,\n            \"detalle\": \"Taza 8oz\",\n            \"categoria\": \"Café\",\n            \"imagen\": \"https://www.shutterstock.com/image-photo/coffee-cup-saucer-teaspoon-pack-600nw-2337186769.jpg\",\n            \"esNuevo\": true\n        },\n        {\n            \"id\": 2,\n            \"nombre\": \"Espresso\",\n            \"descripcion\": \"Café concentrado servido en taza pequeña\",\n            \"precio\": 5,\n            \"detalle\": \"Shot simple\",\n            \"categoria\": \"Café\",\n            \"imagen\": \"https://www.shutterstock.com/image-photo/coffee-cup-saucer-teaspoon-pack-600nw-2337186769.jpg\",\n            \"esNuevo\": false\n        },\n        {\n            \"id\": 3,\n            \"nombre\": \"Cappuccino\",\n            \"descripcion\": \"Café espresso con leche vaporizada y espuma\",\n            \"precio\": 8.5,\n            \"detalle\": \"Taza 12oz\",\n            \"categoria\": \"Café\",\n            \"imagen\": \"https://www.shutterstock.com/image-photo/coffee-cup-saucer-teaspoon-pack-600nw-2337186769.jpg\",\n            \"esNuevo\": true\n        },\n        {\n            \"id\": 4,\n            \"nombre\": \"Latte\",\n            \"descripcion\": \"Café espresso con leche cremosa\",\n            \"precio\": 8,\n            \"detalle\": \"Taza 12oz\",\n            \"categoria\": \"Café\",\n            \"imagen\": \"https://www.shutterstock.com/image-photo/coffee-cup-saucer-teaspoon-pack-600nw-2337186769.jpg\",\n            \"esNuevo\": false\n        },\n        {\n            \"id\": 5,\n            \"nombre\": \"Mocha\",\n            \"descripcion\": \"Latte con chocolate y crema batida\",\n            \"precio\": 9.5,\n            \"detalle\": \"Taza 12oz\",\n            \"categoria\": \"Café\",\n            \"imagen\": \"https://www.shutterstock.com/image-photo/coffee-cup-saucer-teaspoon-pack-600nw-2337186769.jpg\",\n            \"esNuevo\": false\n        },\n        {\n            \"id\": 6,\n            \"nombre\": \"Frappé Vainilla\",\n            \"descripcion\": \"Bebida fría a base de café y vainilla\",\n            \"precio\": 11,\n            \"detalle\": \"Vaso 16oz\",\n            \"categoria\": \"Bebida fría\",\n            \"imagen\": \"https://img.freepik.com/psd-gratis/refrescante-bebida-cola-fria-vaso-salpicaduras_632498-25634.jpg\",\n            \"esNuevo\": true\n        },\n        {\n            \"id\": 7,\n            \"nombre\": \"Iced Latte\",\n            \"descripcion\": \"Café espresso con leche y hielo\",\n            \"precio\": 9,\n            \"detalle\": \"Vaso 16oz\",\n            \"categoria\": \"Bebida fría\",\n            \"imagen\": \"https://img.freepik.com/psd-gratis/refrescante-bebida-cola-fria-vaso-salpicaduras_632498-25634.jpg\",\n            \"esNuevo\": false\n        },\n        {\n            \"id\": 8,\n            \"nombre\": \"Croissant\",\n            \"descripcion\": \"Hojaldre de mantequilla horneado\",\n            \"precio\": 4.5,\n            \"detalle\": \"Unidad\",\n            \"categoria\": \"Pastelería\",\n            \"imagen\": \"https://www.shutterstock.com/image-photo/assorted-fancy-cakes-shopwindow-260nw-2189877387.jpg\",\n            \"esNuevo\": false\n        },\n        {\n            \"id\": 9,\n            \"nombre\": \"Muffin de Arándanos\",\n            \"descripcion\": \"Muffin suave con trozos de arándanos\",\n            \"precio\": 5,\n            \"detalle\": \"Unidad\",\n            \"categoria\": \"Pastelería\",\n            \"imagen\": \"https://www.shutterstock.com/image-photo/assorted-fancy-cakes-shopwindow-260nw-2189877387.jpg\",\n            \"esNuevo\": true\n        },\n        {\n            \"id\": 10,\n            \"nombre\": \"Brownie\",\n            \"descripcion\": \"Brownie de chocolate con nueces\",\n            \"precio\": 6,\n            \"detalle\": \"Porción\",\n            \"categoria\": \"Pastelería\",\n            \"imagen\": \"https://www.shutterstock.com/image-photo/assorted-fancy-cakes-shopwindow-260nw-2189877387.jpg\",\n            \"esNuevo\": false\n        },\n        {\n            \"id\": 11,\n            \"nombre\": \"Sándwich de Jamón y Queso\",\n            \"descripcion\": \"Pan artesanal con jamón y queso fundido\",\n            \"precio\": 10,\n            \"detalle\": \"Unidad\",\n            \"categoria\": \"Sándwich\",\n            \"imagen\": \"https://bimbousa.com/sites/default/files/2022-07/Receta-Sandwich-de-pollo-a-la-mostaza-Bimbo.jpg\",\n            \"esNuevo\": false\n        },\n        {\n            \"id\": 12,\n            \"nombre\": \"Sándwich de Pollo\",\n            \"descripcion\": \"Pan ciabatta con pollo a la parrilla y lechuga\",\n            \"precio\": 12,\n            \"detalle\": \"Unidad\",\n            \"categoria\": \"Sándwich\",\n            \"imagen\": \"https://bimbousa.com/sites/default/files/2022-07/Receta-Sandwich-de-pollo-a-la-mostaza-Bimbo.jpg\",\n            \"esNuevo\": true\n        },\n        {\n            \"id\": 13,\n            \"nombre\": \"Té Verde\",\n            \"descripcion\": \"Infusión de té verde natural\",\n            \"precio\": 7,\n            \"detalle\": \"Taza 8oz\",\n            \"categoria\": \"Infusiones\",\n            \"imagen\": \"https://static.vecteezy.com/system/resources/thumbnails/040/174/391/small/ai-generated-pictures-of-delicious-and-beautiful-drinks-photo.jpg\",\n            \"esNuevo\": false\n        },\n        {\n            \"id\": 14,\n            \"nombre\": \"Limonada Frozen\",\n            \"descripcion\": \"Refrescante limonada frappé\",\n            \"precio\": 8.5,\n            \"detalle\": \"Vaso 16oz\",\n            \"categoria\": \"Bebida fría\",\n            \"imagen\": \"https://static.vecteezy.com/system/resources/thumbnails/040/174/391/small/ai-generated-pictures-of-delicious-and-beautiful-drinks-photo.jpg\",\n            \"esNuevo\": true\n        },\n        {\n            \"id\": 15,\n            \"nombre\": \"Agua Mineral\",\n            \"descripcion\": \"Botella de agua sin gas\",\n            \"precio\": 3.5,\n            \"detalle\": \"500ml\",\n            \"categoria\": \"Otros\",\n            \"imagen\": \"https://static.vecteezy.com/system/resources/thumbnails/040/174/391/small/ai-generated-pictures-of-delicious-and-beautiful-drinks-photo.jpg\",\n            \"esNuevo\": false\n        }\n    ],\n    \"timestamp\": \"2025-08-17T11:28:24.443628824\",\n    \"details\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "{{URL}}/producto/1",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/producto/1",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"producto",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "ok",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/producto/1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"producto",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 17 Aug 2025 16:32:00 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"ok\": true,\n    \"message\": \"producto retrieved - id: 1\",\n    \"data\": {\n        \"id\": 1,\n        \"nombre\": \"Café Americano\",\n        \"descripcion\": \"Café filtrado estilo americano\",\n        \"precio\": 6.5,\n        \"detalle\": \"Taza 8oz\",\n        \"categoria\": \"Café\",\n        \"imagen\": \"https://www.shutterstock.com/image-photo/coffee-cup-saucer-teaspoon-pack-600nw-2337186769.jpg\",\n        \"esNuevo\": true\n    },\n    \"timestamp\": \"2025-08-17T11:31:59.93882101\",\n    \"details\": null\n}"
+						},
+						{
+							"name": "not found",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/producto/122",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"producto",
+										"122"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 17 Aug 2025 16:32:24 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"ok\": false,\n    \"message\": \"Error retrieving producto with id: 122\",\n    \"data\": null,\n    \"timestamp\": \"2025-08-17T11:32:24.371968563\",\n    \"details\": \"Producto not found - id: 122\"\n}"
+						}
+					]
+				},
+				{
+					"name": "{{URL}}/producto",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre\": \"producto\",\n    \"descripcion\": \"descripcion\",\n    \"precio\": 100.0,\n    \"detalle\": \"detalle\",\n    \"categoria\": \"categoria\",\n    \"imagen\": \"imagen\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/producto",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"producto"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "ok",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"nombre\": \"producto\",\n    \"descripcion\": \"descripcion\",\n    \"precio\": 100.0,\n    \"detalle\": \"detalle\",\n    \"categoria\": \"categoria\",\n    \"imagen\": \"imagen\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/producto",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"producto"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 17 Aug 2025 16:46:28 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"ok\": true,\n    \"message\": \"producto created successfully\",\n    \"data\": {\n        \"id\": 16,\n        \"nombre\": \"producto\",\n        \"descripcion\": \"descripcion\",\n        \"precio\": 100,\n        \"detalle\": \"detalle\",\n        \"categoria\": \"categoria\",\n        \"imagen\": \"imagen\",\n        \"esNuevo\": true\n    },\n    \"timestamp\": \"2025-08-17T11:46:28.256086582\",\n    \"details\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "{{URL}}/producto/16",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/producto/16",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"producto",
+								"16"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "ok",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/producto/16",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"producto",
+										"16"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 17 Aug 2025 16:47:57 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"ok\": true,\n    \"message\": \"producto deleted successfully - id: 16\",\n    \"data\": null,\n    \"timestamp\": \"2025-08-17T11:47:57.877698554\",\n    \"details\": null\n}"
+						},
+						{
+							"name": "not found",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/producto/16",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"producto",
+										"16"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 17 Aug 2025 16:48:05 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"ok\": false,\n    \"message\": \"Error deleting producto with id: 16\",\n    \"data\": null,\n    \"timestamp\": \"2025-08-17T11:48:05.469607097\",\n    \"details\": \"Producto not found - id: 16\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "favorito",
+			"item": [
+				{
+					"name": "{{URL}}/favorito",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/favorito",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"favorito"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "ok",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/favorito",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"favorito"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 17 Aug 2025 21:11:46 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"ok\": true,\n    \"message\": \"Favoritos retrieved successfully\",\n    \"data\": [\n        {\n            \"id\": 1,\n            \"idUsuario\": 1,\n            \"nombreUsuario\": \"admin\",\n            \"idProducto\": 1,\n            \"nombreProducto\": \"Café Americano\"\n        },\n        {\n            \"id\": 2,\n            \"idUsuario\": 1,\n            \"nombreUsuario\": \"admin\",\n            \"idProducto\": 3,\n            \"nombreProducto\": \"Cappuccino\"\n        },\n        {\n            \"id\": 3,\n            \"idUsuario\": 1,\n            \"nombreUsuario\": \"admin\",\n            \"idProducto\": 7,\n            \"nombreProducto\": \"Iced Latte\"\n        },\n        {\n            \"id\": 4,\n            \"idUsuario\": 1,\n            \"nombreUsuario\": \"admin\",\n            \"idProducto\": 10,\n            \"nombreProducto\": \"Brownie\"\n        },\n        {\n            \"id\": 5,\n            \"idUsuario\": 2,\n            \"nombreUsuario\": \"user\",\n            \"idProducto\": 2,\n            \"nombreProducto\": \"Espresso\"\n        },\n        {\n            \"id\": 6,\n            \"idUsuario\": 2,\n            \"nombreUsuario\": \"user\",\n            \"idProducto\": 4,\n            \"nombreProducto\": \"Latte\"\n        },\n        {\n            \"id\": 7,\n            \"idUsuario\": 2,\n            \"nombreUsuario\": \"user\",\n            \"idProducto\": 8,\n            \"nombreProducto\": \"Croissant\"\n        },\n        {\n            \"id\": 8,\n            \"idUsuario\": 2,\n            \"nombreUsuario\": \"user\",\n            \"idProducto\": 12,\n            \"nombreProducto\": \"Sándwich de Pollo\"\n        }\n    ],\n    \"timestamp\": \"2025-08-17T16:11:46.29530559\",\n    \"details\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "{{URL}}/favorito/usuario/1",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/favorito/usuario/1",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"favorito",
+								"usuario",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "ok",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/favorito/usuario/1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"favorito",
+										"usuario",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 17 Aug 2025 21:12:55 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"ok\": true,\n    \"message\": \"Favoritos retrieved for user id: 1\",\n    \"data\": [\n        {\n            \"id\": 1,\n            \"idUsuario\": 1,\n            \"nombreUsuario\": \"admin\",\n            \"idProducto\": 1,\n            \"nombreProducto\": \"Café Americano\"\n        },\n        {\n            \"id\": 2,\n            \"idUsuario\": 1,\n            \"nombreUsuario\": \"admin\",\n            \"idProducto\": 3,\n            \"nombreProducto\": \"Cappuccino\"\n        },\n        {\n            \"id\": 3,\n            \"idUsuario\": 1,\n            \"nombreUsuario\": \"admin\",\n            \"idProducto\": 7,\n            \"nombreProducto\": \"Iced Latte\"\n        },\n        {\n            \"id\": 4,\n            \"idUsuario\": 1,\n            \"nombreUsuario\": \"admin\",\n            \"idProducto\": 10,\n            \"nombreProducto\": \"Brownie\"\n        }\n    ],\n    \"timestamp\": \"2025-08-17T16:12:55.719828811\",\n    \"details\": null\n}"
+						},
+						{
+							"name": "not found",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/favorito/usuario/122",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"favorito",
+										"usuario",
+										"122"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 17 Aug 2025 21:16:57 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"ok\": false,\n    \"message\": \"Error retrieving favoritos for user id: 122\",\n    \"data\": null,\n    \"timestamp\": \"2025-08-17T16:16:57.716241899\",\n    \"details\": \"Usuario not found with id: 122\"\n}"
+						}
+					]
+				},
+				{
+					"name": "{{URL}}/favorito",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"idUsuario\": 1,\n    \"idProducto\": 2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/favorito",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"favorito"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "ok",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"idUsuario\": 1,\n    \"idProducto\": 2\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/favorito",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"favorito"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 17 Aug 2025 21:29:39 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"ok\": true,\n    \"message\": \"Favorito saved successfully\",\n    \"data\": {\n        \"id\": 9,\n        \"idUsuario\": 1,\n        \"nombreUsuario\": \"admin\",\n        \"idProducto\": 2,\n        \"nombreProducto\": \"Espresso\"\n    },\n    \"timestamp\": \"2025-08-17T16:29:39.772363806\",\n    \"details\": null\n}"
+						},
+						{
+							"name": "user not found",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"idUsuario\": 11,\n    \"idProducto\": 2\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/favorito",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"favorito"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 17 Aug 2025 21:30:38 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"ok\": false,\n    \"message\": \"Error saving favorito\",\n    \"data\": null,\n    \"timestamp\": \"2025-08-17T16:30:38.744302849\",\n    \"details\": \"Usuario not found with id: 11\"\n}"
+						},
+						{
+							"name": "product not found",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"idUsuario\": 1,\n    \"idProducto\": 22\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/favorito",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"favorito"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 17 Aug 2025 21:30:51 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"ok\": false,\n    \"message\": \"Error saving favorito\",\n    \"data\": null,\n    \"timestamp\": \"2025-08-17T16:30:51.015030289\",\n    \"details\": \"Producto not found - id: 22\"\n}"
+						},
+						{
+							"name": "favorite exists",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"idUsuario\": 1,\n    \"idProducto\": 2\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/favorito",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"favorito"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 17 Aug 2025 21:36:54 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"ok\": false,\n    \"message\": \"Error saving favorito\",\n    \"data\": null,\n    \"timestamp\": \"2025-08-17T16:36:54.722467727\",\n    \"details\": \"Favorito already exists for usuarioId: 1 and productoId: 2\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "local",
+			"item": [
+				{
+					"name": "{{URL}}/local",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{URL}}/local",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"local"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "ok",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{URL}}/local",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"local"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 24 Aug 2025 15:51:08 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"ok\": true,\n    \"message\": \"Todos los locales obtenidos correctamente\",\n    \"data\": [\n        {\n            \"id\": 1,\n            \"razonSocial\": \"Cavosh Coffee Miraflores\",\n            \"direccion\": \"Av. Larco 1234\",\n            \"distritoNombre\": \"Miraflores\",\n            \"horario\": \"Lun-Dom 7:00am - 10:00pm\",\n            \"latitud\": \"-12.123456\",\n            \"longitud\": \"-77.032123\"\n        },\n        {\n            \"id\": 2,\n            \"razonSocial\": \"Cavosh Coffee San Isidro\",\n            \"direccion\": \"Calle Los Sauces 567\",\n            \"distritoNombre\": \"San Isidro\",\n            \"horario\": \"Lun-Vie 7:30am - 9:00pm\",\n            \"latitud\": \"-12.099876\",\n            \"longitud\": \"-77.036543\"\n        },\n        {\n            \"id\": 3,\n            \"razonSocial\": \"Cavosh Coffee Barranco\",\n            \"direccion\": \"Av. Grau 890\",\n            \"distritoNombre\": \"San Borja\",\n            \"horario\": \"Lun-Dom 8:00am - 11:00pm\",\n            \"latitud\": \"-12.144321\",\n            \"longitud\": \"-77.022345\"\n        },\n        {\n            \"id\": 4,\n            \"razonSocial\": \"Cavosh Coffee Surco\",\n            \"direccion\": \"Av. Primavera 456\",\n            \"distritoNombre\": \"Santiago de Surco\",\n            \"horario\": \"Lun-Sab 7:00am - 9:30pm\",\n            \"latitud\": \"-12.145678\",\n            \"longitud\": \"-77.012987\"\n        }\n    ],\n    \"timestamp\": \"2025-08-24T10:51:08.574629404\",\n    \"details\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "{{URL}}/local/buscarPorId/1",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/local/1",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"local",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "ok",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/local/1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"local",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 24 Aug 2025 15:51:18 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"ok\": true,\n    \"message\": \"Local encontrado con id: 1\",\n    \"data\": {\n        \"id\": 1,\n        \"razonSocial\": \"Cavosh Coffee Miraflores\",\n        \"direccion\": \"Av. Larco 1234\",\n        \"distrito\": {\n            \"id\": 1,\n            \"nombre\": \"Miraflores\"\n        },\n        \"horario\": \"Lun-Dom 7:00am - 10:00pm\",\n        \"latitud\": \"-12.123456\",\n        \"longitud\": \"-77.032123\"\n    },\n    \"timestamp\": \"2025-08-24T10:51:18.436936403\",\n    \"details\": null\n}"
+						},
+						{
+							"name": "not found",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/local/122",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"local",
+										"122"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 24 Aug 2025 15:51:25 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"ok\": false,\n    \"message\": \"Local no encontrado con id: 122\",\n    \"data\": null,\n    \"timestamp\": \"2025-08-24T10:51:25.681141666\",\n    \"details\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "{{URL}}/local/crear",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{URL}}/local/crear",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"local",
+								"crear"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "{{URL}}/local",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{URL}}/local/actualizar/1",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"local",
+								"actualizar",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "{{URL}}/local/eliminar/1",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id\": 1,\n  \"nombre\": \"Joao Actualizado\",\n  \"correo\": \"joao@example.com\",\n  \"passwordd\": \"123456\"\n}\n"
+						},
+						"url": {
+							"raw": "{{URL}}/local/eliminar/1",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"local",
+								"eliminar",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "ok",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"id\": 1,\n  \"nombre\": \"Joao Actualizado\",\n  \"correo\": \"joao@example.com\",\n  \"passwordd\": \"123456\"\n}\n"
+								},
+								"url": {
+									"raw": "{{URL}}/local/eliminar/1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"local",
+										"eliminar",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 24 Aug 2025 15:52:07 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"ok\": true,\n    \"message\": \"Local eliminado exitosamente con id: 1\",\n    \"data\": null,\n    \"timestamp\": \"2025-08-24T10:52:07.626242846\",\n    \"details\": null\n}"
+						}
+					]
+				}
+			]
+		}
+	]
+}
