@@ -110,7 +110,7 @@ public class UsuarioController {
         );
     }
 
-    @GetMapping("/buscarPorId/{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<GlobalResponse> getUsuarioById(@PathVariable Long id) {
         HttpStatus status;
         Object data;
