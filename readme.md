@@ -63,7 +63,7 @@ entorno de desarrollo.
 
 🔧 Tecnologías Usadas:
 
-- Spring Boot 3.x
+- Spring Boot 3.5.5
 - Spring Web
 - Spring Security
 - Spring Data JPA
