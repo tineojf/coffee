@@ -13,7 +13,7 @@ entorno de desarrollo.
 
 1. Clona el repositorio:
    ```bash
-   git clone https://github.com/tu-org/cavosh-coffee-backend.git
+   git clone
    cd cavosh-coffee-backend
    ```
 2. Abre con IntelliJ IDEA
